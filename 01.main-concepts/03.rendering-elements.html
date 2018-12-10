@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <title>Rendering Elements</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const arr_icons = ["😁", "😂", "😃", "😉", "😋", "😒", "😔", "😥", "😠"]
+
+        function tick() {
+
+            const element = (
+                <div>
+                    <h1>Hi amazing { arr_icons[parseInt(Math.random() * 10)] }</h1>
+                    <h2>{ new Date().toLocaleTimeString() }</h2>
+                </div>
+            )
+            
+            ReactDOM.render(
+                element,
+                document.getElementById("root")
+            )
+        }
+
+        setInterval(tick, 1000);
+    </script>
+</body>
+</html>
