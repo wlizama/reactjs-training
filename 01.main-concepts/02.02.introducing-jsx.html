@@ -11,14 +11,18 @@
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 
-    <title>Introducing JSX</title>
+    <title>Introducing JSX 02</title>
 </head>
 <body>
     <div id="root"></div>
 
     <script type="text/babel">
         const ico = "🌏"
-        const element = <h1>Hola Mundillo {ico} JSX</h1>
+        const element = React.createElement(
+            "h1",
+            { className : "my-super-class" },
+            `Hello amazing ${ico} !`
+        )
         
         ReactDOM.render(
             element,
