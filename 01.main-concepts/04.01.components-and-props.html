@@ -11,22 +11,22 @@
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 
-    <title>Components and Props</title>
+    <title>Components and Props 01</title>
 </head>
 <body>
     <div id="root"></div>
 
     <script type="text/babel">
 
-        function Welcome(props) {
+        function Wellcome(props) {
             return <h1>Hello {props.ico} !</h1>
         }
 
         const element = (
             <div>
-                <Welcome ico="🌏" />
-                <Welcome ico="✋" />
-                <Welcome ico="👿" />
+                <Wellcome ico="🌏" />
+                <Wellcome ico="✋" />
+                <Wellcome ico="👿" />
             </div>
         )
         
