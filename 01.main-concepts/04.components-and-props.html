@@ -22,7 +22,13 @@
             return <h1>Hello {props.ico} !</h1>
         }
 
-        const element = <Welcome ico="🌏" />
+        const element = (
+            <div>
+                <Welcome ico="🌏" />
+                <Welcome ico="✋" />
+                <Welcome ico="👿" />
+            </div>
+        )
         
         ReactDOM.render(
             element,
