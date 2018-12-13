@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <title>List and Keys 03</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // Las claves utilizadas dentro de los arreglos deben ser únicas entre sus hermanos.
+        // Sin embargo, no necesitan ser únicos a nivel global. Podemos usar las mismas claves cuando producimos dos arreglos diferentes:
+
+        function Blog(props) {
+            const sidebar = (
+                <ul>
+                    {props.posts.map((post) =>
+                        <li key={post.id}>
+                            {post.title}
+                        </li>
+                    )}
+                </ul>
+            )
+
+            const content = props.posts.map((post) =>
+                <div key={post.id}>
+                    <h3>{post.title}</h3>
+                    <p>{post.content}</p>
+                </div>
+            )
+
+            return (
+                <div>
+                    {sidebar}
+                    <hr />
+                    {content}
+                </div>
+            )
+        }
+
+        const posts = [
+            { id: 1, title:"Tempor eiusmod voluptate aute dolor elit", content: "Consequat aute exercitation veniam deserunt in. Labore reprehenderit sint laboris ex commodo proident adipisicing voluptate reprehenderit pariatur. Eiusmod reprehenderit commodo dolor esse et culpa cupidatat amet qui ullamco cillum adipisicing consectetur. Anim id minim sint nulla aliqua officia tempor labore. Enim occaecat adipisicing esse ipsum." },
+            { id: 2, title:"Et anim occaecat laborum eiusmod exercitation aliqui", content: "Exercitation reprehenderit adipisicing est minim et. Laboris deserunt sint ex reprehenderit sit laboris nisi nulla consectetur ea occaecat adipisicing. Cupidatat eiusmod adipisicing officia deserunt ad nisi enim cupidatat. Irure exercitation sint ut enim ut fugiat sint in deserunt aliquip nisi culpa cupidatat esse. Velit reprehenderit aute nostrud et laboris anim excepteur cillum laborum. Ex labore aliqua adipisicing aute do cupidatat deserunt. Lorem sint ipsum veniam magna elit." },
+            { id: 3, title:"Nisi adipisicing in et culpa tempor commodo non.", content: "Culpa laborum in nostrud sunt dolor irure. Ipsum mollit reprehenderit anim est sunt laboris. Sunt cillum consectetur voluptate magna amet ad consequat ut elit. Officia adipisicing mollit do est excepteur officia id fugiat duis est. Sit sint in tempor cillum duis exercitation dolore non eu ex enim. Qui aliqua sit cupidatat non labore tempor. Sunt dolore id Lorem voluptate et nulla duis ex." },
+        ]
+        
+        ReactDOM.render(
+            <Blog posts={posts} />,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>
