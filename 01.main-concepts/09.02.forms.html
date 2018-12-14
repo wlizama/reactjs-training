@@ -11,47 +11,54 @@
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 
-    <title>Forms 01</title>
+    <title>Forms 02</title>
 </head>
 <body>
     <div id="root"></div>
 
     <script type="text/babel">
 
-        class NameForm extends React.Component {
+        class SelectForm extends React.Component {
             constructor(props) {
                 super(props)
                 this.state = {
-                    value: ""
+                    value: "papa_rellena"
                 }
 
                 this.handleChange = this.handleChange.bind(this)
                 this.handleSubmit = this.handleSubmit.bind(this)
             }
 
-            handleChange(evt) {
-                this.setState({ value: evt.target.value })
+            handleChange(event) {
+                this.setState({ value: event.target.value})
             }
 
-            handleSubmit(evt) {
-                alert(`A name was submitted: ${this.state.value}`)
-                evt.preventDefault();
+            handleSubmit(event) {
+                alert(`Tu plato favorito es: ${this.state.value}`)
+                event.preventDefault();
             }
 
             render() {
                 return (
                     <form onSubmit={this.handleSubmit}>
                         <label>
-                            Name: 
-                            <input type="text" value={this.state.value} onChange={this.handleChange} />
+                            Elige tu plato favorito:
+                            <select value={this.state.value} onChange={this.handleChange}>
+                                <option value="mazamorra">Mazamorra</option>
+                                <option value="papa_rellena">Papa rellena</option>
+                                <option value="arroz_con_leche">Arroz con Leche</option>
+                                <option value="huancaina">Huancaina</option>
+                                <option value="beso_de_mosa">Beso de Mosa</option>
+                            </select>
                         </label>
+                        <input type="submit" value="Enviar ✈" />
                     </form>
                 )
             }
         }
 
         ReactDOM.render(
-            <NameForm />,
+            <SelectForm />,
             document.getElementById("root")
         )
     </script>
