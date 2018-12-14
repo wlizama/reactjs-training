@@ -11,55 +11,51 @@
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 
-    <title>Forms 02</title>
+    <title>Forms 03</title>
 </head>
 <body>
     <div id="root"></div>
 
     <script type="text/babel">
 
-        class SelectForm extends React.Component {
+        class Reservation extends React.Component {
             constructor(props) {
                 super(props)
                 this.state = {
-                    value: "papa_rellena"
+                    isGoing: true,
+                    numberOfGuest: 2
                 }
 
                 this.handleChange = this.handleChange.bind(this)
-                this.handleSubmit = this.handleSubmit.bind(this)
             }
 
             handleChange(event) {
-                this.setState({ value: event.target.value})
+                const target = event.target
+                const value = target.type === "checkbox"  ? target.checked : target.value
+                const name = target.name
+                this.setState({ [name]: value })
             }
 
-            handleSubmit(event) {
-                alert(`Tu plato favorito es: ${this.state.value}`)
-                event.preventDefault();
-            }
 
             render() {
                 return (
                     <form onSubmit={this.handleSubmit}>
                         <label>
-                            Elige tu plato favorito:
-                            <select value={this.state.value} onChange={this.handleChange}>
-                                <option value="mazamorra">Mazamorra</option>
-                                <option value="papa_rellena">Papa rellena</option>
-                                <option value="arroz_con_leche">Arroz con Leche</option>
-                                <option value="huancaina">Huancaina</option>
-                                <option value="beso_de_mosa">Beso de Mosa</option>
-                            </select>
+                            Is Going:
+                            <input name="isGoing" type="checkbox" checked={this.state.isGoing} onChange={this.handleChange} />
                         </label>
                         <br />
-                        <input type="submit" value="Enviar ✈" />
+                        <label>
+                            Number of Guest:
+                            <input name="numberOfGuest" type="number" value={this.state.numberOfGuest} onChange={this.handleChange} disabled={!this.state.isGoing} />
+                        </label>
                     </form>
                 )
             }
         }
 
         ReactDOM.render(
-            <SelectForm />,
+            <Reservation />,
             document.getElementById("root")
         )
     </script>
