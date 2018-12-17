@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <title>Lifting state up</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        function BoilingVerdict(props) {
+            if (props.celcius >= 100) {
+                return <h1>El agua esta que hierve eee 😰 🔥🔥🔥</h1>
+            }
+            return <h1>No pasa nada 😏</h1>
+        }
+
+        class Calculation extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    temperature: ""
+                }
+
+                this.handleChange = this.handleChange.bind(this)
+            }
+
+            handleChange(event) {
+                this.setState({ temperature: event.target.value })
+            }
+
+            render() {
+                const temperature = this.state.temperature
+
+                return (
+                    <fieldset>
+                        <legend>Ingrsar temperatura en Celcius:</legend>
+                        <input value={temperature} onChange={this.handleChange} />
+                        <br />
+                        <BoilingVerdict celcius={parseFloat(temperature)} />
+                    </fieldset>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <Calculation />,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>
