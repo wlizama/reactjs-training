@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <title>Composition VS Inheritance 02</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        function Contacts(props) {
+            return (
+                <ul className="Contact-wrap">
+                    <li className="Contact-item">
+                        <span className="Contact-avatar">😉</span>
+                        <div className="Contact-info">Super contactiño</div>
+                    </li>
+                </ul>
+            )
+        }
+
+        function Chat(props) { 
+            return (
+                <div>
+                   <span>💬</span>
+                   <div>User is writing...</div>
+                </div>
+            )
+        }
+
+        function SplitPane(props) {
+            return (
+                <div className="SplitPane">
+                    <div className="SplitPane-left">
+                        {props.left}
+                    </div>
+                    <div className="SplitPane-right">
+                        {props.right}
+                    </div>
+                </div>
+            )
+        }
+
+        function App() {
+            return (
+                <SplitPane left={<Contacts/>} right={<Chat/>} />
+            )
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>
