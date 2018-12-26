@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <title>Accessibility</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // import React, { Fragment } from "react";
+        /*
+            A veces rompemos la semántica de HTML cuando agregamos elementos <div> a
+            nuestro JSX para hacer que nuestro código React funcione, especialmente 
+            cuando trabajamos con listas (<ol>, <ul> y <dl>) y la <table> HTML.
+            En estos casos deberíamos usar Fragmentos de React para agrupar múltiples elementos.
+        */
+        let Fragment = React.Fragment
+        
+        function ListItem({ item }) {
+            return (
+                <Fragment>
+                    <dt>{item.term}</dt>
+                    <dd>{item.description}</dd>
+                </Fragment>
+            )
+        }
+
+        function Glosary(props) {
+            return (
+                <dl>
+                    {props.items.map(item => (
+                        <ListItem item={item} key={item.id} />
+                    ))}
+                </dl>
+            )
+        }
+
+        const items = [
+            { id: 1, term: "Dolor anim velit ad dolor incididunt.", description: "Incididunt non esse adipisicing fugiat. Irure labore fugiat sit minim sint sunt velit dolore dolore incididunt labore. Adipisicing ea proident officia id cillum culpa sint qui ipsum proident occaecat. Non aliquip mollit nostrud nulla id ut aute est velit labore eiusmod. Duis excepteur nulla est ut magna in irure ex esse aliquip ut. Proident pariatur incididunt dolor qui cillum."},
+            { id: 2, term: "Officia commodo elit voluptate nulla.", description: "Non velit elit ut pariatur qui labore. Dolore exercitation amet adipisicing eiusmod mollit magna ea occaecat incididunt ea aliqua ut. Amet elit in ipsum qui non non sint. Magna est cillum cillum tempor ipsum irure. Culpa ex id adipisicing eu exercitation nostrud minim irure ad ex occaecat reprehenderit."},
+            { id: 3, term: "Lorem magna esse sint aute enim laboris laborum.", description: "Aute pariatur labore sit cupidatat proident quis ut quis enim dolore dolore eiusmod. Magna et laborum velit est mollit nostrud cupidatat id pariatur. Anim do commodo est est proident. Nisi qui laborum non aliquip ea ipsum reprehenderit duis eu. Nisi nostrud esse id ad irure eu. Sit in ut elit laborum Lorem fugiat nulla duis aliquip irure anim eiusmod ea."},
+            { id: 4, term: "Non officia magna laboris cillum commodo.", description: "Enim commodo deserunt voluptate minim. Amet velit officia anim amet incididunt enim officia ad sit ea qui ea ea. Eiusmod enim laboris officia duis sunt exercitation eu magna et commodo minim do qui. Dolore officia sint sunt exercitation qui voluptate adipisicing. Officia deserunt consectetur veniam do eiusmod."}
+        ]
+
+        ReactDOM.render(
+            <Glosary items={items} />,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>
