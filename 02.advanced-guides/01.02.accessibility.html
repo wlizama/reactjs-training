@@ -22,10 +22,11 @@
             constructor(props) {
                 super(props)
                 this.textInput = React.createRef()
+                this.setFocus = this.setFocus.bind(this) // this is the solution 😄
             }
 
             setFocus() {
-                this.textInput.current.focus() // no working 😒
+                this.textInput.current.focus() // yeah now work !!
             }
 
             render() {
