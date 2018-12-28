@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <title>JSX in depth 02</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // Props Default to “True”
+        
+        class MiSuperRange extends React.Component {
+            constructor(props) {
+                super(props)
+                this.inputRange = React.createRef()
+                this.handleChange = this.handleChange.bind(this)
+                this.state = {
+                    // emotions : [ "😇", "😐", "😈" ],
+                    count: 0
+                }
+            }
+
+            handleChange() {
+                console.log(this.inputRange.current.value)
+                this.setState({
+                    count: this.inputRange.current.value
+                })
+            }
+            
+            render() {
+                return (
+                    <div>
+                        <input type="range" value={this.state.count} onChange={this.handleChange} ref={this.inputRange} />
+                        {this.props.count ? <span>{this.state.count}</span> : null}
+                    </div>
+                )
+            }
+        }
+        
+        ReactDOM.render(
+            <MiSuperRange count />,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>
