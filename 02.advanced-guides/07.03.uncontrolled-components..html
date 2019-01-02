@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <title>Uncontrolled Components 03</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        class FileInput extends React.Component {
+            constructor(props) {
+                super(props)
+                this.handleSubmit = this.handleSubmit.bind(this)
+                this.fileInput = React.createRef()
+            }
+
+            handleSubmit(event) {
+                event.preventDefault();
+                alert(`El archivo seleccionado es: "${this.fileInput.current.files[0].name}"`)
+            }
+            
+            render() {
+                return (
+                    <form onSubmit={this.handleSubmit}>
+                        <label>Name:
+                            <input type="file" ref={this.fileInput} />
+                        </label>
+                        <input type="submit" value="submit" />
+                    </form>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <FileInput />,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>
