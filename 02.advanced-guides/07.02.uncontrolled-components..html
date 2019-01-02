@@ -11,7 +11,7 @@
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 
-    <title>Uncontrolled Components.</title>
+    <title>Uncontrolled Components 02</title>
 </head>
 <body>
     <div id="root"></div>
@@ -39,7 +39,7 @@
                 return (
                     <form onSubmit={this.handleSubmit}>
                         <label>Name:
-                            <input type="text" ref={this.input} />
+                            <input defaultValue="Rasputin" type="text" ref={this.input} />
                         </label>
                         <input type="submit" value="submit" />
                     </form>
