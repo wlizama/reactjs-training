@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <title>Portals</title>
+</head>
+<body>
+    <div id="root"></div>
+    <div id="modal-root"></div>
+
+    <script type="text/babel">
+
+        const appRoot = document.getElementById("root")
+        const modalRoot = document.getElementById("modal-root")
+
+        class Modal extends React.Component {
+            constructor(props) {
+                super(props)
+                this.el = document.createElement("div")
+            }
+
+            componentDidMount() {
+                // El elemento del portal se inserta en el árbol DOM después de
+                // los hijos del Modal están montados, lo que significa que los hijos
+                // se montará en un nodo DOM separado. Si un hijo
+                // el componente requiere estar adjunto al árbol DOM
+                // inmediatamente cuando está montado, por ejemplo para medir un
+                // nodo DOM, o usa 'autoFocus' en un descendiente, agregue
+                // estado a Modal y solo renderizar los hijos cuando Modal
+                // se inserta en el árbol DOM.
+                modalRoot.appendChild(this.el)
+            }
+
+            componentWillUnMount() {
+                modalRoot.removeChild(this.el)
+            }
+
+            render() {
+                return ReactDOM.createPortal(
+                    this.props.children,
+                    this.el
+                )
+            }
+        }
+
+        class Parent extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = { clicks: 0 }
+                this.handleClick = this.handleClick.bind(this)
+            }
+
+            handleClick() {
+                this.setState(state =>({
+                    clicks: state.clicks + 1
+                }))
+            }
+
+            render() {
+                return (
+                    <div onClick={this.handleClick}>
+                        <p>Number of clicks {this.state.clicks}</p>
+                        <p>
+                            Abre el navegador DevTools para observar 
+                            que el botón no es un hijo del div
+                            con el controlador onClick
+                        </p>
+                        <Modal>
+                            <Child />
+                        </Modal>
+                    </div>
+                )
+            }
+        }
+
+        function Child() {
+            return (
+                <div className="modal">
+                    <button>Click Me ✨</button>
+                </div>
+            )
+        }
+        
+        ReactDOM.render(
+            <Parent />,
+            appRoot
+        )
+    </script>
+</body>
+</html>
