@@ -6,7 +6,7 @@ class App extends Component {
         super()
 
         this.state = {
-            title : "Hiii"
+            title : "Hello ReactJS with Webpack ⭐🌟"
         }
     }
 
