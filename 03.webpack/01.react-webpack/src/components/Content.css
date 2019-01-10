@@ -1,0 +1,6 @@
+.post-item:nth-child(even) {
+    background-color: #C4C4C4;
+}
+.post-item:nth-child(odd) {
+    background-color: #7a7a7a;
+}

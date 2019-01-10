@@ -1,0 +1,9 @@
+.main-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #0082C6;
+    text-align: center;
+    height: 3em;
+    line-height: 3em;
+}

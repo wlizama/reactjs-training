@@ -1,7 +1,8 @@
 import React from "react"
+import "./Header.css"
 
 export const Header = (props) => {
     return (
-        <header>{props.title}</header>
+        <header className="main-header">{props.title}</header>
     )
 }
