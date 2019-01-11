@@ -1,15 +1,1 @@
-.main-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background-color: #0082C6;
-    text-align: center;
-    height: 3em;
-    line-height: 3em;
-}
-.post-item:nth-child(even) {
-    background-color: #C4C4C4;
-}
-.post-item:nth-child(odd) {
-    background-color: #7a7a7a;
-}
+.main-header{position:fixed;width:100%;top:0;background-color:#0082c6;text-align:center;height:3em;line-height:3em}.post-item:nth-child(2n){background-color:#c4c4c4}.post-item:nth-child(odd){background-color:#7a7a7a}
