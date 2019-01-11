@@ -1,3 +1,6 @@
+.content-section {
+    margin-top: 3.5em;
+}
 .post-item:nth-child(even) {
     background-color: #C4C4C4;
 }
