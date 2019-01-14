@@ -1,5 +1,7 @@
+@import "../styles/styles.scss";
+
 .content-section {
-    margin-top: 3.5em;
+    margin-top: $height-brand + .5em;
 }
 .post-item:nth-child(even) {
     background-color: #C4C4C4;

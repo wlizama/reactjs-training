@@ -1,0 +1,14 @@
+@import "../styles/styles.scss";
+
+.main-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: $color-brand;
+    font-size: $basefontsize * 2;
+    color: #FFFFFF;
+    text-align: center;
+    height: $height-brand;
+    line-height: $height-brand;
+}
