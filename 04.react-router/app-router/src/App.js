@@ -1,20 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link} from "react-router-dom"
-
-const Home = () => <h2>Home</h2>
-const About = () => <h2>About</h2>
-const Users = () => <h2>Users</h2>
-const ContactUs = () => <h2>Contact Us</h2>
+import "./styles/App.scss"
+import { Home } from "./components/Home"
+import { About } from "./components/About"
+import { Users } from "./components/Users"
+import { ContactUs } from "./components/ContactUs"
 
 const App = () => (
     <Router>
         <div>
             <nav>
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/users">Users</Link></li>
-                    <li><Link to="/contact">Contact Us</Link></li>
+                    <li><Link className="App-link" to="/">Home</Link></li>
+                    <li><Link className="App-link" to="/about">About</Link></li>
+                    <li><Link className="App-link" to="/users">Users</Link></li>
+                    <li><Link className="App-link" to="/contact">Contact Us</Link></li>
                 </ul>
             </nav>
 
