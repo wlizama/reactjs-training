@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom"
 import "./styles/App.scss"
 import Routes from "./Routes"
 
@@ -11,7 +11,7 @@ const App = () => (
                 {Routes.map((route, index) => (
                     !route.notLink ?
                         <li key={index}>
-                            <Link className="App-link" to={route.path}>{route.title}</Link>
+                            <NavLink className="App-link" exact={route.exact} activeClassName="App-link--active" to={route.path}>{route.title}</NavLink>
                         </li>
                         : null
                 ))}
