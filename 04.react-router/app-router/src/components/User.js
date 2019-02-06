@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const User = (props) => (
-    <h2>User</h2>
+export const User = ({match}) => (
+    <h2>User {match.params.id} </h2>
 )
