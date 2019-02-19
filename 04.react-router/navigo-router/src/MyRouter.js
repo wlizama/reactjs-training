@@ -19,7 +19,7 @@ class MyRouter extends React.Component {
     }
     render() {
         return (
-            <h2>About ...</h2>
+            <h2>About ..., parece que no funcionara </h2>
         )
     }
 }
