@@ -1,20 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom"
+import { BrowserRouter as Router, NavLink, Switch } from "react-router-dom"
+import { Routes, RouteWithSubRoutes } from "./MyRouter"
 import "./styles/App.scss"
-
-import { Home } from "./components/Home"
-import { About } from "./components/About"
-import { Users } from "./components/Users"
-import { ContactUs } from "./components/ContactUs"
-import { NoMatch } from "./components/NoMatch"
-
-let Routes = [
-    { path: "/", title: "Home", component: Home, exact: true },
-    { path: "/about", title: "About", component: About },
-    { path: "/users", title: "Users", component: Users },
-    { path: "/contact", title: "Contact Us", component: ContactUs },
-    { notLink: true, component: NoMatch },
-]
 
 const App = () => (
     <Router>
@@ -38,7 +25,7 @@ const App = () => (
             </nav>
             <Switch>
                 {Routes.map((route, index) => (
-                <Route key={index} path={route.path} exact={route.exact} component={route.component} />
+                    <RouteWithSubRoutes key={index} {...route} />
                 ))}
             </Switch>
         </div>
