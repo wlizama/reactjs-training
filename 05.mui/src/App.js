@@ -1,11 +1,17 @@
 import React from 'react'
-import { Button } from '@material-ui/core'
+import { BrowserRouter as Router } from 'react-router-dom'
+import Navigation from 'components/Navigation'
+import Content from 'components/Content'
+import Footer from 'components/Footer'
+
 
 const App = () => {
 	return (
-		<div>
-			<Button color='primary'>Hello MUI</Button>
-		</div>
+		<Router>
+			<Navigation />
+			<Content />
+			<Footer />
+		</Router>
 	)
 }
 
