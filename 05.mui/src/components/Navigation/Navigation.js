@@ -56,7 +56,7 @@ const Navigation = props => {
 	const theme = useTheme()
 
 	return (
-		<nav className={classes.drawer} aria-label="mailbox folders">
+		<nav className={classes.drawer} aria-label="main navigation">
 			{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
 			<Hidden smUp implementation="css">
 				<Drawer

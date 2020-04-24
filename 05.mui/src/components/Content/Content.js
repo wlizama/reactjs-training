@@ -11,9 +11,13 @@ import User from 'components/Content/User'
 import Todo from 'components/Content/Todo'
 
 
-const Content = () => {
+const Content = props => {
+
+	const { classes } = props
+
 	return (
-		<section>
+		<main className={classes.content}>
+			<div className={classes.toolbar} />
 			<Switch>
 				<Route exact path="/"><Home /></Route>
 				<Route path="/posts"><Post /></Route>
@@ -23,7 +27,7 @@ const Content = () => {
 				<Route path="/users"><User /></Route>
 				<Route path="/todos"><Todo /></Route>
 			</Switch>
-		</section>
+		</main>
 	)
 }
 

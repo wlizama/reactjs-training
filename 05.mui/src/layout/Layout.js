@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Header from 'components/Header'
 import Navigation from 'components/Navigation'
 import Content from 'components/Content'
-import Footer from 'components/Footer'
+// import Footer from 'components/Footer'
 
 const DRAWER_WIDTH = 240;
 
@@ -40,7 +40,7 @@ const useStyles = makeStyles( theme => ({
 	},
 	content: {
 		flexGrow: 1,
-		padding: theme.spacing(3),
+		padding: theme.spacing(3)
 	},
 }));
   
@@ -61,7 +61,7 @@ const Layout = () => {
 			<Header classes={classes} handleDrawerToggle={handleDrawerToggle} />
 			<Navigation classes={classes} mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
 			<Content classes={classes} />
-			<Footer classes={classes} />
+			{/* <Footer classes={classes} /> */}
 		</div>
 	)
 }
