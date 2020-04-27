@@ -4,9 +4,9 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import Header from 'components/Header'
-import Navigation from 'components/Navigation'
-import Content from 'components/Content'
+import Header from 'layout/Header'
+import Navigation from 'layout/Navigation'
+import Content from './Content'
 
 const DRAWER_WIDTH = 240;
 

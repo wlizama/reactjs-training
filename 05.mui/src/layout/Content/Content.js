@@ -2,13 +2,13 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 // import Components
-import Home from 'components/Content/Home'
-import Post from 'components/Content/Post'
-import Comment from 'components/Content/Comment'
-import Album from 'components/Content/Album'
-import Photo from 'components/Content/Photo'
-import User from 'components/Content/User'
-import Todo from 'components/Content/Todo'
+import Home from 'components/Home'
+import Post from 'components/Post'
+import Comment from 'components/Comment'
+import Album from 'components/Album'
+import Photo from 'components/Photo'
+import User from 'components/User'
+import Todo from 'components/Todo'
 
 
 const Content = props => {
