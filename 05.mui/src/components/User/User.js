@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import {
 	Card,
 	CardHeader,
@@ -20,7 +20,7 @@ import {
 
 const useStyles = makeStyles({
 	root: {
-		maxWidth: 345
+		width: 345
 	},
 	media: {
 		height: 140
@@ -32,20 +32,32 @@ const User = props => {
 
 	const { user } = props
 
+	
+	const randonAvatar = ()  => {
+		const randonChoose = choices => {
+			const index = Math.floor(Math.random() * choices.length)
+			return choices[index]
+		}
+		
+		const rdGen = randonChoose(['men', 'women'])
+		const rdIdx = parseInt(Math.random()*100)
+		return `https://randomuser.me/api/portraits/thumb/${rdGen}/${rdIdx}.jpg`
+	}
+
+
 	return (
 		<Card className={classes.root}>
 			<CardHeader 
 				avatar={
-					<Avatar>
-						{user.id}
-					</Avatar>
+					<Avatar 
+					src={randonAvatar()} />
 				}
 				title={user.name}
 				subheader={`@${user.username}`}
 			/>
 			<CardMedia 
 				className={classes.media}
-				image={'https://picsum.photos/seed/picsum/300/200'}
+				image={`https://picsum.photos/300/200?random=${user.id}`}
 			/>
 			<CardContent>
 				<List>
