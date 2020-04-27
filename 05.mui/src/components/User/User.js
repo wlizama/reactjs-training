@@ -17,6 +17,7 @@ import {
 	Work as WorkIcon
 } from '@material-ui/icons'
 
+import UserMenu from './UserMenu'
 
 const useStyles = makeStyles({
 	root: {
@@ -52,6 +53,7 @@ const User = props => {
 					<Avatar 
 					src={randonAvatar()} />
 				}
+				action={<UserMenu />}
 				title={user.name}
 				subheader={`@${user.username}`}
 			/>
