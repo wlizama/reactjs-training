@@ -17,11 +17,12 @@ const Users = () => {
 		<Grid container spacing={2}>
 			<Grid item xs={12}>
 				<Grid container justify="center" spacing={2}>
-					{users.map((user, idx) => 
-						<Grid key={idx} item>
-							<User user={user} />
-						</Grid>
-					)}
+				{users.map((user, idx) => 
+					<Grid key={idx} item>
+						<User user={user} />
+					</Grid>
+					
+				)}
 				</Grid>
 			</Grid>
 		</Grid>

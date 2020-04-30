@@ -1,10 +1,26 @@
 import React from 'react'
+import {
+	ListItem,
+	ListItemText,
+	ListItemAvatar,
+	Avatar
+} from '@material-ui/core'
+import { randonAvatar } from 'helpers/utils'
 
-const Post = () => {
+
+const Post = props => {
+
+	const { post } = props
 	return (
-		<div>
-		Post	
-		</div>
+		<ListItem alignItems="flex-start">
+			<ListItemAvatar>
+				<Avatar alt="Remy Sharp" src={randonAvatar()} />
+			</ListItemAvatar>
+			<ListItemText
+				primary={post.title}
+				secondary={post.body}
+			/>
+		</ListItem>
 	)
 }
 

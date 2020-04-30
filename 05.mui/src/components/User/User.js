@@ -18,6 +18,8 @@ import {
 } from '@material-ui/icons'
 
 import UserMenu from './UserMenu'
+import { randonAvatar } from 'helpers/utils'
+
 
 const useStyles = makeStyles({
 	root: {
@@ -32,19 +34,6 @@ const User = props => {
 	const classes = useStyles()
 
 	const { user } = props
-
-	
-	const randonAvatar = ()  => {
-		const randonChoose = choices => {
-			const index = Math.floor(Math.random() * choices.length)
-			return choices[index]
-		}
-		
-		const rdGen = randonChoose(['men', 'women'])
-		const rdIdx = parseInt(Math.random()*100)
-		return `https://randomuser.me/api/portraits/thumb/${rdGen}/${rdIdx}.jpg`
-	}
-
 
 	return (
 		<Card className={classes.root}>
